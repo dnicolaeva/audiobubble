@@ -101,7 +101,11 @@
     <script id="results-template" type="text/x-handlebars-template">
       {{#each tracks.items}}
       <div class="results-title">{{name}} <br/></div>
-      <div style="background-image:url({{album.images.2.url}})" song-id="{{id}}" class="cover"></div>
+      <div style="background-image:url({{album.images.2.url}})" 
+          song-id="{{id}}" 
+          song-name="{{name}}"
+          song-artist="{{artists.0.name}}"
+          class="cover"></div>
       <div> {{artists.0.name}} </div>
       <div> {{album.name}} </div>
       <br/>

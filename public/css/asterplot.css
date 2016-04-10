@@ -63,7 +63,7 @@
   position: absolute;
   bottom: 100px;
   right: 100px;
-  /*display: none;*/
+  display: none;
 }
 .asterplot-color{
   display:inline-block;margin-right:10px;

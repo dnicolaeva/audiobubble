@@ -106,7 +106,7 @@ function drawLegend(){
     
 }
 
-function drawAsterPlot(data) {
+function drawAsterPlot(data, songName, songArtist) {
     var width = 480,
         height = 480,
         radius = Math.min(width, height) / 2,
@@ -138,7 +138,15 @@ function drawAsterPlot(data) {
         .attr("height", height)
         .append("g")
         .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
-        
+    
+    svg.append("text")
+        .attr("x", 0)             
+        .attr("y", -(height / 2) + 40)
+        .attr("text-anchor", "middle")  
+        .style("font-size", "14px") 
+        .style("font-weight", "600") 
+        .style("text-decoration", "none")  
+        .text(songName + ", " + songArtist);
     // svg.call(tip);
 
     data.forEach(function(d) {
@@ -175,7 +183,6 @@ var templateSource = document.getElementById('results-template').innerHTML,
     audioObject = null;
 
 var searchSongs = function (query) {
-    console.log("Hi!");
     $.ajax({
         url: 'https://api.spotify.com/v1/search',
         data: {
@@ -183,7 +190,6 @@ var searchSongs = function (query) {
             type: 'track'
         },
         success: function (response) {
-            console.log("Successs!");
             $('#results').show();
             resultsPlaceholder.innerHTML = template(response);
         }
@@ -215,16 +221,15 @@ var fetchAnalysis = function (analysisUrl, callback) {
 
 results.addEventListener('click', function (e) {
     var target = e.target;
-    var chosensongid = target.getAttribute('song-id')
+    var songName = target.getAttribute('song-name');
+    var songArtist = target.getAttribute('song-artist');
     if (target !== null) {
 
         fetchFeatures(target.getAttribute('song-id'), function (spotifyData) {                    
-
             fetchAnalysis(spotifyData.analysis_url , function (analysisData){
                 var parsedData = [];                
                 // If you use i it doesn't work....
                 for (j = 0; j < analysisData.length ; j += 3) { 
-                    console.log(j);
                     var curr = {
                         startTime : analysisData[j].start,
                         endTime : analysisData[j].start + analysisData[j].duration,
@@ -235,17 +240,17 @@ results.addEventListener('click', function (e) {
                     };
                     parsedData.push(curr);
                 }
-                
-                console.log(parsedData);
+
                  $('#results').hide();
-                drawAsterPlot(parsedData);
-                drawLegend();
+                drawAsterPlot(parsedData, songName, songArtist);
+                $('#asterplot-legend').show();
+                
             });
         });            
     }
 });
 
-
+drawLegend();
 document.getElementById('search-form').addEventListener('submit', function (e) {
     e.preventDefault();
     searchSongs(document.getElementById('query').value);
