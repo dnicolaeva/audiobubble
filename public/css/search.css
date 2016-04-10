@@ -1,0 +1,19 @@
+#search-form, .form-control {
+	margin-bottom:20px;
+}
+
+.cover {
+	width:60px; height:60px; display:inline-block; background-size:cover; 
+}
+
+.cover:hover {
+	cursor:pointer; 
+}
+
+.cover.playing {
+	border:5px solid red; 
+}
+#results{
+	background-color: rgba(255, 255, 255, 0.3);
+	border-radius: 20px;
+}
