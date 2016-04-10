@@ -253,5 +253,6 @@ results.addEventListener('click', function (e) {
 drawLegend();
 document.getElementById('search-form').addEventListener('submit', function (e) {
     e.preventDefault();
+    $('#asterplot-legend').hide();
     searchSongs(document.getElementById('query').value);
 }, false);
