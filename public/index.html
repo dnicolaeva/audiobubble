@@ -10,6 +10,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/login.css" rel="stylesheet">
     <link href="css/search.css" rel="stylesheet">
+    <link href="css/asterplot.css" rel="stylesheet">
 </head>
 
 <body>
@@ -24,7 +25,7 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="#">Start a new search</a>
+              <a class="navbar-brand" href="#">Audio Bubble</a>
           </div>
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -45,22 +46,14 @@
   <div class="container">
     <!--  LOGIN VIEW _ NOT AUTH -->
     <div id="login" class="row" id="pwd-container">
-
       <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-8 col-xs-offset-2">
         <section id="login-container">
             <a href="/login" class="btn btn-lg btn-primary btn-block">Log in with Spotify</a>
-            <div>
-              <a href="#">Learn more about</a> 
-              - 
-              <a href="#">Contact us</a>
-            </div>
         </section>
       </div>
-
       <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-8 col-xs-offset-2 form-links">
-          <a href="www.perfectplaylist.io">www.perfectplaylist.io</a>
+          <a href="www.audiobubble.io">www.audiobubble.io</a>
       </div>
-
     </div>
     <!-- /.row #login-->
 
@@ -74,7 +67,7 @@
     <!-- /.row #loggedin-->
 
     <script id="user-profile-template" type="text/x-handlebars-template">
-      <h1>Logged in as {{display_name}}</h1>
+      <h1>Hi {{display_name}}</h1>
     </script>
 
     <div id="search_title" class="row">
@@ -107,7 +100,7 @@
     
     <script id="results-template" type="text/x-handlebars-template">
       {{#each tracks.items}}
-      <div >{{name}} <br/></div>
+      <div class="results-title">{{name}} <br/></div>
       <div style="background-image:url({{album.images.2.url}})" song-id="{{id}}" class="cover"></div>
       <div> {{artists.0.name}} </div>
       <div> {{album.name}} </div>
@@ -115,11 +108,21 @@
       {{/each}}
     </script>
     <!-- /.result-template-->
+
+    <div class="row">
+        <div class="text-center col-md-12 col-sm-12">
+            <div id="aster-plot"></div>
+        </div>
+    </div>
+    <!-- /.row -->
   
   </div>
   <!-- /.container -->
+  <div id="asterplot-legend">
+  </div>
     
-
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.1/handlebars.min.js"></script>
   <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
   <script src="js/auth.js"> </script>

@@ -1,8 +1,3 @@
-body {
-  font: 10px sans-serif;
-  background-color: #333;
-}
-
 .axis path,
 .axis line {
   fill: none;
@@ -62,4 +57,17 @@ body {
   margin: -1px 0 0 0;
   top: 100%;
   left: 0;
+}
+
+#asterplot-legend{
+  position: absolute;
+  bottom: 100px;
+  right: 100px;
+  /*display: none;*/
+}
+.asterplot-color{
+  display:inline-block;margin-right:10px;
+}
+.asterplot-text{
+  display:inline-block;
 }

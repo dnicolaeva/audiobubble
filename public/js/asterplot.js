@@ -24,12 +24,18 @@ var outlineArc = d3.svg.arc()
         .innerRadius(innerRadius)
         .outerRadius(radius);
 
-var svg = d3.select("body").append("svg")
+// var svg = d3.select("body").append("svg")
+//     .attr("width", width)
+//     .attr("height", height)
+//     .append("g")
+//     .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+var svg = d3.select("aster-plot").append("svg")
     .attr("width", width)
     .attr("height", height)
     .append("g")
     .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
-
+    
 svg.call(tip);
 
 d3.csv('json/aster_data.csv', function(error, data) {
