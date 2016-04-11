@@ -84,6 +84,7 @@
                       <input type="text" id="query" value="" class="form-control" placeholder="Search for...">
                       <span class="input-group-btn">
                         <button class="btn btn-default" type="submit" id="search">Go!</button>
+                        <button class="btn btn-default" onclick="myReloadFunction()">Restart</button>
                       </span>
                     </div><!-- /.input-group --> 
             </form>
@@ -133,5 +134,11 @@
   <script src="js/search.js"> </script>
  
   <script src="js/bootstrap.min.js"></script>
+
+  <script>
+function myReloadFunction() {
+    location.reload();
+}
+</script>
 
 </body>

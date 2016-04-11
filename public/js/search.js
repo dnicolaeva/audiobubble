@@ -1,13 +1,40 @@
 function getPitchString(pitch){
     switch(pitch) {
     case 0:
-        return "1st pitch";
+        return "C";
         break;
     case 1:
-        return "2nd pitch";
+        return "C#";
         break;
     case 2:
-        return "3rd pitch";
+        return "D";
+        break;
+    case 3:
+        return "D#";
+        break;
+    case 4:
+        return "E";
+        break;
+    case 5:
+        return "F";
+        break;
+    case 6:
+        return "F#";
+        break;
+    case 7:
+        return "G";
+        break;
+    case 8:
+        return "G#";
+        break;
+    case 9:
+        return "A";
+        break;
+    case 10:
+        return "A#";
+        break;
+    case 11:
+        return "B";
         break;
     default:
         return pitch + 1 + "th pitch";
