@@ -255,8 +255,14 @@ results.addEventListener('click', function (e) {
         fetchFeatures(target.getAttribute('song-id'), function (spotifyData) {                    
             fetchAnalysis(spotifyData.analysis_url , function (analysisData){
                 var parsedData = [];                
+                //We want to normalize the number of wedges in every circle
+                var divisor = Math.ceil(analysisData.length / 500);
+                console.log(divisor);
+                if (divisor < 1){
+                    divisor = 1;
+                }
                 // If you use i it doesn't work....
-                for (j = 0; j < analysisData.length ; j += 3) { 
+                for (j = 0; j < analysisData.length ; j += divisor) { 
                     var curr = {
                         startTime : analysisData[j].start,
                         endTime : analysisData[j].start + analysisData[j].duration,
