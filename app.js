@@ -145,12 +145,6 @@ app.get('/refresh_token', function(req, res) {
   });
 });
 
-// app.post('/songid', function(req, res) {
-//   console.log("YAYAY");
-//   console.log(req);
-//   res.redirect('/#');
-
-// });
-
-console.log('Listening on 8800');
-app.listen(8800);
+var port = process.env.PORT || 3000;
+    app.listen(port);
+console.log('Listening on port ' + port);
