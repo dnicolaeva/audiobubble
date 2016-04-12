@@ -14,7 +14,7 @@ var cookieParser = require('cookie-parser');
 
 var client_id = '5840b95d1aa34356b090695f5fc067bb'; // Your client id
 var client_secret = '83246bd0f3ac40969bb99f237181fbcc'; // Your client secret
-var redirect_uri = 'http://localhost:8800/callback'; // Your redirect uri
+var redirect_uri = 'https://heroku-node-audiobubble.herokuapp.com/callback'; // Your redirect uri
 
 // var client_id = 'YOUR CLIENT ID'; // Your client id
 // var client_secret = 'YOUR CLIENT SECRET'; // Your client secret
