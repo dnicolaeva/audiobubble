@@ -241,6 +241,7 @@ var fetchFeatures = function (songId, callback) {
 };
 
 var fetchAnalysis = function (analysisUrl, callback) {
+    analysisUrl = analysisUrl.replace('http://','https://');
     $.get(analysisUrl, function(response) {
          callback(response.segments);
     });
